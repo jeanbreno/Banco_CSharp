@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using static Banco.Util;
 
-
 namespace Banco {
     public static class Crud {
 

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arquivo.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="Crud.cs" />
     <Compile Include="Mock.cs" />

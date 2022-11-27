@@ -5,111 +5,132 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Banco {
+
     public class Util {
-
-        public static double EntrarReal(string msg) {
-            double num = 0;
-            bool flag = false;
-
-            do {
-                try {
-                    Console.WriteLine(msg);
-                    //num = int.Parse(Console.ReadLine());
-                    num = Convert.ToDouble(Console.ReadLine());
-                } catch (FormatException) {
-                    Console.WriteLine("Erro: Número inválido!");
-                }
-
-            } while (!flag);
-
-            return num;
-        }
 
         public static int EntrarInteiro(string msg) {
             int num = 0;
-            bool flag = false;
+            bool numOk = false;
 
             do {
                 try {
-                    Console.WriteLine(msg);
-                    //num = int.Parse(Console.ReadLine());
-                    num = Convert.ToInt32(Console.ReadLine());
+                    Console.Write(msg);
+                    num = int.Parse(Console.ReadLine());
+                    numOk = true;
                 } catch (FormatException) {
-                    Console.WriteLine("Erro: Número inválido!");
+                    Console.WriteLine("Erro: número inválido");
                 }
-
-            } while (flag);
-
+            } while (!numOk);
             return num;
         }
 
         public static int EntrarNumeroConta() {
             int num;
-            bool flag = false;
+            bool contaOk = false;
 
             do {
-                num = EntrarInteiro("Número da Conta: ");
+                num = EntrarInteiro("Entre com o número da conta: ");
                 if (num > 0) {
-                    flag = true;    
+                    contaOk = true;
                 } else {
-                    Console.WriteLine("Erro: Número de conta inválido!");
+                    Console.WriteLine("Erro: número de conta inválido");
                 }
+            } while (!contaOk);
+            return num;
+        }
 
-            } while (!flag);
+        public static double EntrarReal(string msg) {
+            double num = 0;
+            bool numOk = false;
 
+            do {
+                try {
+                    Console.Write(msg);
+                    num = double.Parse(Console.ReadLine());
+                    numOk = true;
+                } catch (FormatException) {
+                    Console.WriteLine("Erro: número inválido");
+                }
+            } while (!numOk);
             return num;
         }
 
         public static double EntrarSaldo() {
             double saldo;
-            bool flag = false;
+            bool saldoOk = false;
 
             do {
-                saldo = EntrarReal("Saldo: ");
-
+                saldo = EntrarReal("Entre com o saldo: ");
                 if (saldo >= 0) {
-                    flag = true;
+                    saldoOk = true;
                 } else {
-                    Console.WriteLine("Erro: Saldo inválido!");
+                    Console.WriteLine("Erro: saldo inválido");
                 }
-
-            } while (!flag);
-
+            } while (!saldoOk);
             return saldo;
         }
 
         public static string EntrarNome() {
             string nome;
-            bool flag = false;
+            bool nomeOk = false;
 
             do {
-                Console.WriteLine("Nome completo: ");
+                Console.Write("Entre com o nome: ");
                 nome = Console.ReadLine();
-
                 string[] nomes = nome.Split(' ');
-
                 if (nomes.Length >= 2) {
-                    flag = true;
+                    nomeOk = true;
                 } else {
-                    Console.WriteLine("Nome inválido!");
+                    Console.WriteLine("Erro: nome inválido");
                 }
-            } while (!flag);
-
+            } while (!nomeOk);
             return nome;
         }
 
         public static int PesquisarConta(List<Conta> contas, int num) {
-            int flag = -1;
+            int achou = -1;
 
-            for (int i=0; i< contas.Count; i++) {
-
+            for (int i = 0; i < contas.Count; i++) {
                 if (contas[i].Id == num) {
-                    flag = i;
+                    achou = i;
                     break;
                 }
             }
+            return achou;
+        }
 
-            return flag;
+        public static bool ContaVazia(List<Conta> contas) {
+            return (contas.Count == 0);
+        }
+
+        public static int EntrarOperacao() {
+            int oper;
+            bool operOk = false;
+
+            do {
+                oper = EntrarInteiro("Entre com a operação [1]-Crédito ou [2]-Débito: ");
+                if ((oper == 1) || (oper == 2)) {
+                    operOk = true;
+                } else {
+                    Console.WriteLine("Erro: operãção inválida");
+                }
+            } while (!operOk);
+            return oper;
+        }
+
+        public static double EntrarValor() {
+            double valor;
+            bool valorOk = false;
+
+            do {
+                valor = EntrarReal("Entre com um valor maior que zero: ");
+                if (valor > 0) {
+                    valorOk = true;
+                } else {
+                    Console.WriteLine("Erro: valor inválido");
+                }
+            } while (!valorOk);
+            return valor;
         }
     }
 }

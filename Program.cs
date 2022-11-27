@@ -4,6 +4,7 @@ using static Banco.Crud;
 using static Banco.Mock;
 using static Banco.Arquivo;
 using static Banco.Menu;
+using static Banco.Util;
 
 namespace Banco {
     public class Program {
@@ -23,7 +24,7 @@ namespace Banco {
                     case 2: Alterar(contas); break;
                     case 3: Excluir(contas); break;
                     case 4: Consultar(contas); break;
-                    case 5: break;
+                    case 5: EncerrarPrograma();  break;
                 }
 
                 opcao = MenuPrincipal();

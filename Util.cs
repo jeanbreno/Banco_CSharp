@@ -129,5 +129,10 @@ namespace Banco {
             } while (!valorOk);
             return valor;
         }
+
+        public static void EncerrarPrograma() {
+            Console.WriteLine("Encerrando execução do programa...");
+            Environment.Exit(1);
+        }
     }
 }

@@ -8,24 +8,25 @@ using static Banco.Menu;
 namespace Banco {
     public class Program {
         public static void Main(string[] args) {
-            int opcao, sair;
+            int opcao;
 
             List<Conta> contas = new List<Conta>();
 
             LerArquivo(contas);
-            //MockIncluir(contas);
+            MockIncluir(contas);
 
-            opcao = Menu();
+            opcao = MenuPrincipal();
 
-            while (opcao != sair) {
+            while ((opcao >= 1) && (opcao <= 5)) { 
                 switch (opcao) {
                     case 1: Incluir(contas); break;
                     case 2: Alterar(contas); break;
                     case 3: Excluir(contas); break;
                     case 4: Consultar(contas); break;
+                    case 5: break;
                 }
 
-                opcao = Menu();
+                opcao = MenuPrincipal();
             }
 
             //Incluir(contas);

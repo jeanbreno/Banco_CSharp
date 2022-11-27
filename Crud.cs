@@ -81,14 +81,14 @@ namespace Banco {
                 Console.WriteLine("Erro: contas vazia");
                 return;
             }
-            opcao = Menu();
+            opcao = MenuConsultas();
             while (opcao != FIM) {
                 switch (opcao) {
                     case 1: ConsultarTodas(contas); break;
                     case 2: ConsultarContasNegativas(contas); break;
                     case 3: ConsultarContasValor(contas); break;
                 }
-                opcao = Menu();
+                opcao = MenuConsultas();
             }
         }
 

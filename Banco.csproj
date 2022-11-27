@@ -46,6 +46,7 @@
     <Compile Include="Arquivo.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="Crud.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Mock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

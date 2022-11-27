@@ -98,12 +98,14 @@ namespace Banco {
             return nome;
         }
 
-        public static bool PesquisarConta(List<Conta> contas, int num) {
-            bool flag = false;
+        public static int PesquisarConta(List<Conta> contas, int num) {
+            int flag = -1;
 
-            foreach (Conta conta in contas) {
-                if (conta.Id == num) {
-                    flag = true;
+            for (int i=0; i< contas.Count; i++) {
+
+                if (contas[i].Id == num) {
+                    flag = i;
+                    break;
                 }
             }
 

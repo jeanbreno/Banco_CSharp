@@ -16,9 +16,9 @@ namespace Banco {
 
             num = EntrarNumeroConta();
 
-            bool contaExiste = PesquisarConta(contas, num);
+            int contaExiste = PesquisarConta(contas, num);
 
-            if (contaExiste) {
+            if (contaExiste == -1) {
                 Console.WriteLine("ERRO: Conta já existe!");
                 return;
             }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace Banco {
+﻿namespace Banco {
     public class Conta {
         public int Id {  get; set; }
         public string Nome { get; set; }
@@ -15,6 +8,18 @@ namespace Banco {
             Id = id;
             Nome = nome;  
             Saldo = saldo;
+        }
+
+        public bool SaldoZero() {
+            return (Saldo == 0);
+        }
+
+        public void Creditar(double valor) {
+            Saldo += valor;
+        }
+
+        public void Debitar(double valor) {
+            Saldo -= valor;
         }
 
         public override string ToString() {
